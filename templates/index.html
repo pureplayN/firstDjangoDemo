@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>哈哈</title>
+    <script src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+<h1 style="background-color: antiquewhite;color: black">Hello haha World!</h1>
+ <h1>用户输入：</h1>
+    <form action="/login/" method="post">
+         {% csrf_token %}
+        <table>
+            <tr><td>用户名:</td><td><input type="text" name="username" /></td></tr>
+             <tr><td>密码:</td><td><input type="password" name="password" /></td></tr>
+            <tr><td colspan="2"><input type="submit" value="提交" /></td></tr>
+        </table>
+    </form>
+<div>
+    <hr/>
+    <h1>用户展示</h1>
+    <table border="1">
+        <tr>
+            <thead>
+            <tr>用户名</tr>
+            <tr>密码</tr>
+            </thead>
+            <tbody>
+              {% for item in data %}
+              <tr>
+                <td>{{ item.user }}</td>
+                <td>{{ item.pwd }}</td>
+               </tr>
+              {% endfor%}
+            </tbody>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
+<script>
+    $(function () {
+        alert('哈哈，欢迎欢迎');
+    });
+</script>
